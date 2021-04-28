@@ -1,29 +1,23 @@
 import React from 'react';
-import {StyleSheet, Text, SafeAreaView} from 'react-native';
+import Header from './app/components/Header';
+import Footer from './app/components/Footer';
+import {ScrollView, View, Text} from 'react-native';
 
-export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.mainHeader} onPress>
-        Martial Arts
-      </Text>
-    </SafeAreaView>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={{flex: 1}}>
+        <Header />
+        <ScrollView>
+          <Text>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nemo
+            repellat est earum eius quia porro tenetur recusandae, aut assumenda
+            ad officiis libero exercitationem ipsam facere neque numquam
+            mollitia corporis?
+          </Text>
+        </ScrollView>
+        <Footer />
+      </View>
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ff9d9d',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  mainHeader: {
-    color: 'white',
-    fontSize: 30,
-    fontFamily: 'poppins',
-    backgroundColor: '#bd4839',
-    padding: 10,
-    borderRadius: 50,
-  },
-});
