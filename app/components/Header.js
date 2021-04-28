@@ -5,6 +5,7 @@ import {
   View,
   Text,
   TextInput,
+  Image,
   TouchableOpacity,
 } from 'react-native';
 
@@ -14,8 +15,14 @@ const Header = () => {
       <TouchableOpacity>
         <Text style={styles.headText}>LOGO</Text>
       </TouchableOpacity>
-      <View>
-        <TextInput style={styles.searchbox} />
+      <View style={styles.searchBar}>
+        <TextInput style={styles.searchBox} />
+        <TouchableOpacity>
+          <Image
+            style={styles.searchIcon}
+            source={require('../../icons/search.png')}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -36,13 +43,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
   },
-  searchbox: {
+  searchBar: {
+    flexDirection: 'row',
+  },
+  searchBox: {
     borderBottomColor: 'white',
     borderBottomWidth: 1,
     paddingBottom: 0,
     paddingTop: 0,
-    width: 150,
+    width: 120,
     color: 'white',
+  },
+  searchIcon: {
+    width: 20,
+    height: 20,
+    marginTop: 5,
   },
 });
 
