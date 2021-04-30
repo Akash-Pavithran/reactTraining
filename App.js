@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './app/components/Header';
 import Footer from './app/components/Footer';
+import StoryContainer from './app/elements/StoryContainer';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
 
 export default class App extends React.Component {
@@ -9,15 +10,20 @@ export default class App extends React.Component {
       <View style={styles.body}>
         <Header />
         <ScrollView style={styles.content}>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <View style={styles.stories}>
+              <StoryContainer />
+              <StoryContainer />
+              <StoryContainer />
+              <StoryContainer />
+              <StoryContainer />
+              <StoryContainer />
+            </View>
+          </ScrollView>
           <Text style={styles.contentText}>
             Nam officiis praesentium cupiditate ullam repellendus, laborum
-            deleniti possimus atque. Vel voluptatum consequuntur, voluptatibus
-            facilis placeat ea id aliquid iste obcaecati, nostrum recusandae
-            porro perspiciatis ratione quod est quasi ab eum illum! Temporibus
-            officia eius quam dolorem odio voluptas vero nobis est sit ab, illo
-            minus consequatur culpa iure hic, possimus cum obcaecati, corrupti
-            itaque inventore nostrum voluptate facere ratione quibusdam.
-            Debitis, expedita?
+            deleniti possimus atque. Vel voluptatum consequuntur, . Debitis,
+            expedita?
           </Text>
         </ScrollView>
         <Footer />
@@ -30,10 +36,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingHorizontal: 10,
+    paddingTop: 10,
   },
   contentText: {
-    fontSize: 15,
+    fontSize: 16,
+  },
+  stories: {
+    alignSelf: 'stretch',
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgrey',
+    flexDirection: 'row',
   },
 });

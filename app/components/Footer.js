@@ -1,22 +1,26 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 
-const Header = () => {
+const Footer = () => {
   return (
     <View style={styles.footer}>
       <View style={styles.footItems}>
         <TouchableOpacity>
-          <Text style={styles.footText}>Home</Text>
+          <Image style={styles.footIcon}
+          source={require('../../icons/home.png')}/>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.footText}>Profile</Text>
+          <Image style={styles.footIcon}
+          source={require('../../icons/user.png')}/>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.footText}>Notifications</Text>
+          <Image style={styles.footIcon}
+          source={require('../../icons/bell.png')}/>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.footText}>Settings</Text>
+          <Image style={styles.footIcon}
+          source={require('../../icons/settings.png')}/>
         </TouchableOpacity>
       </View>
     </View>
@@ -29,17 +33,23 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 30,
   },
   footText: {
     color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
+    fontWeight: '100',
+    fontSize: 10,
   },
   footItems: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
+  },
+  footIcon: {
+    alignSelf: 'center',
+    width: 25,
+    height: 25,
   },
 });
 
-export default Header;
+export default Footer;

@@ -23,6 +23,12 @@ const Header = () => {
             source={require('../../icons/search.png')}
           />
         </TouchableOpacity>
+        <TouchableOpacity>
+          <Image
+          style={styles.hamburger}
+          source={require('../../icons/hamburger.png')}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -55,6 +61,12 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   searchIcon: {
+    width: 20,
+    height: 20,
+    marginTop: 5,
+    marginRight: 10,
+  },
+  hamburger: {
     width: 20,
     height: 20,
     marginTop: 5,
