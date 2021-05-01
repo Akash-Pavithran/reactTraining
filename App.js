@@ -5,6 +5,7 @@ import Footer from './app/components/Footer';
 import StoryContainer from './app/components/StoryContainer';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
 
+
 export default class App extends React.Component {
   render() {
     return (
