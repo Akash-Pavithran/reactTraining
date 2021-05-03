@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const Header = () => {
+const TopBar = () => {
   return (
     <View style={styles.header}>
       <TouchableOpacity>
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Header;
+export default TopBar;

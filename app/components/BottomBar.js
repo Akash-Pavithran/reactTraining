@@ -2,7 +2,7 @@
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 
-const Footer = () => {
+const BottomBar = () => {
   return (
     <View style={styles.footer}>
       <View style={styles.footItems}>
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Footer;
+export default BottomBar;
