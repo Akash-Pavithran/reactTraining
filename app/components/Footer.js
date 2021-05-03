@@ -8,19 +8,19 @@ const Footer = () => {
       <View style={styles.footItems}>
         <TouchableOpacity>
           <Image style={styles.footIcon}
-          source={require('../../icons/home.png')}/>
+          source={require('../icons/home.png')}/>
         </TouchableOpacity>
         <TouchableOpacity>
           <Image style={styles.footIcon}
-          source={require('../../icons/user.png')}/>
+          source={require('../icons/user.png')}/>
         </TouchableOpacity>
         <TouchableOpacity>
           <Image style={styles.footIcon}
-          source={require('../../icons/bell.png')}/>
+          source={require('../icons/bell.png')}/>
         </TouchableOpacity>
         <TouchableOpacity>
           <Image style={styles.footIcon}
-          source={require('../../icons/settings.png')}/>
+          source={require('../icons/settings.png')}/>
         </TouchableOpacity>
       </View>
     </View>

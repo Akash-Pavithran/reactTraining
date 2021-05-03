@@ -20,13 +20,13 @@ const Header = () => {
         <TouchableOpacity>
           <Image
             style={styles.searchIcon}
-            source={require('../../icons/search.png')}
+            source={require('../icons/search.png')}
           />
         </TouchableOpacity>
         <TouchableOpacity>
           <Image
           style={styles.hamburger}
-          source={require('../../icons/hamburger.png')}
+          source={require('../icons/hamburger.png')}
           />
         </TouchableOpacity>
       </View>
