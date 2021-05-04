@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   storyContainer: {
     width: 100,
     height: 130,
-    backgroundColor: 'grey',
+    backgroundColor: '#0fa87d',
     borderRadius: 10,
     marginRight: 10,
   },
