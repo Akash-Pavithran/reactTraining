@@ -67,13 +67,16 @@ const App = () => {
     <View style={styles.container}>
       <Text style={styles.heading}>Favorite Contacts</Text>
       <ScrollView>
-        <View style={styles.item}>
-          <Image
-          source={data.photo}
-          style={styles.photo}
-          />
-          <Text style={styles.title}>{data.title}</Text>
-        </View>
+        {
+          data.map((item) => {
+            return (
+              <View style={styles.item} key={item.id}>
+                <Image style={styles.photo} source={item.photo} />
+                <Text style={styles.title}>{item.title}</Text>
+              </View>
+            );
+          })
+        }
       </ScrollView>
     </View>
   );
