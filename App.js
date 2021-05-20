@@ -6,7 +6,10 @@ import {
   StyleSheet,
   Text,
   Image,
+  TouchableOpacity,
 } from 'react-native';
+import TopBar from './app/components/TopBar';
+import BottomBar from './app/components/BottomBar';
 
 const data = [
   {
@@ -65,19 +68,21 @@ const App = () => {
 
   return (
     <View style={styles.container}>
+      <TopBar/>
       <Text style={styles.heading}>Favorite Contacts</Text>
       <ScrollView>
         {
-          data.map((item) => {
+          data.map((item, key) => {
             return (
-              <View style={styles.item} key={item.id}>
+              <TouchableOpacity style={styles.item} key={item.id}>
                 <Image style={styles.photo} source={item.photo} />
                 <Text style={styles.title}>{item.title}</Text>
-              </View>
+              </TouchableOpacity>
             );
           })
         }
       </ScrollView>
+      <BottomBar/>
     </View>
   );
 };
@@ -85,10 +90,11 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    // marginTop: 20,
     backgroundColor: '#F8F8F8',
   },
   heading: {
+    marginVertical:20,
     fontWeight: 'bold',
     fontSize: 20,
     alignSelf: 'center',

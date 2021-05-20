@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -10,26 +10,31 @@ import {
 } from 'react-native';
 
 const TopBar = () => {
+  const [showSearch, setShowSearch] = useState(false);
   return (
     <View style={styles.header}>
       <TouchableOpacity>
         <Text style={styles.headText}>LOGO</Text>
       </TouchableOpacity>
       <View style={styles.searchBar}>
-        <TextInput style={styles.searchBox} />
-        <TouchableOpacity>
+        {
+          showSearch ? (
+            <TextInput style={styles.searchBox} />
+          ) : null
+        }
+        <TouchableOpacity onPress={()=>setShowSearch(!showSearch)}>
           <Image
-            style={styles.searchIcon}
+            style={styles.showSearch}
             source={require('../icons/search.png')}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Image
-          style={styles.hamburger}
-          source={require('../icons/hamburger.png')}
-          />
-        </TouchableOpacity>
       </View>
+      <TouchableOpacity>
+        <Image
+        style={styles.hamburger}
+        source={require('../icons/hamburger.png')}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
     width: 120,
     color: 'white',
   },
-  searchIcon: {
+  showSearch: {
     width: 20,
     height: 20,
     marginTop: 5,
