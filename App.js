@@ -1,15 +1,21 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable prettier/prettier */
+import { NavigationContainer } from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {
   View,
   ScrollView,
   StyleSheet,
   Text,
+  Button,
   Image,
   TouchableOpacity,
 } from 'react-native';
 import TopBar from './app/components/TopBar';
-import BottomBar from './app/components/BottomBar';
+import HomeScreen from './app/screens/HomeScreen';
+// import BottomBar from './app/components/BottomBar';
 
 const data = [
   {
@@ -64,26 +70,46 @@ const data = [
   },
 ];
 
-const App = () => {
+
+function SettingsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
+}
+const Tab = createBottomTabNavigator();
+const App = ()=> {
 
   return (
-    <View style={styles.container}>
-      <TopBar/>
-      <Text style={styles.heading}>Favorite Contacts</Text>
-      <ScrollView>
-        {
-          data.map((item, key) => {
-            return (
-              <TouchableOpacity style={styles.item} key={item.id}>
-                <Image style={styles.photo} source={item.photo} />
-                <Text style={styles.title}>{item.title}</Text>
-              </TouchableOpacity>
-            );
-          })
-        }
-      </ScrollView>
-      <BottomBar/>
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <TopBar/>
+        <Text style={styles.heading}>Favorite Contacts</Text>
+        <ScrollView>
+          {
+            data.map((item, key) => {
+              return (
+                <TouchableOpacity style={styles.item} key={item.id}>
+                  <Image style={styles.photo} source={item.photo} />
+                  <Text style={styles.title}>{item.title}</Text>
+                </TouchableOpacity>
+              );
+            })
+          }
+        </ScrollView>
+        <Tab.Navigator>
+          <Tab.Screen name="home" component={HomeScreen}/>
+          <Tab.Screen name="settings" component={SettingsScreen}/>
+
+        </Tab.Navigator>
+        {/* <BottomBar/> */}
+      </View>
+    </NavigationContainer>
   );
 };
 
