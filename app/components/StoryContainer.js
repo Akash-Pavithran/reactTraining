@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     height: 130,
     backgroundColor: '#0fa87d',
     borderRadius: 10,
-    marginRight: 10,
+    marginHorizontal: 5,
   },
   stories: {
     alignSelf: 'stretch',
