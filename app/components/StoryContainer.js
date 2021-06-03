@@ -1,27 +1,19 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {StyleSheet, View, ScrollView} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 
-const StoryContainer = () => {
+const StoryContainer = (props) => {
   return (
-    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-      <View style={styles.stories}>
-        <View style={styles.storyContainer} />
-        <View style={styles.storyContainer} />
-        <View style={styles.storyContainer} />
-        <View style={styles.storyContainer} />
-        <View style={styles.storyContainer} />
-        <View style={styles.storyContainer} />
-        <View style={styles.storyContainer} />
-      </View>
-    </ScrollView>
+    <View style={styles.stories}>
+      <Image style={styles.storyContainer} source={props.source}/>
+    </View>
   );
 };
 const styles = StyleSheet.create({
   storyContainer: {
     width: 100,
     height: 130,
-    backgroundColor: '#0fa87d',
+    // backgroundColor: '#0fa87d',
     borderRadius: 10,
     marginHorizontal: 5,
   },

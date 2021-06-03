@@ -24,19 +24,19 @@ const BottomBarTab = ()=> {
             iconName = focused ? 'person' : 'person-outline';
           }
 
-          return <Ionicons name={iconName} size={25} color={color} />;
+          return <Ionicons name={iconName} size={22} color={color} />;
         },
       })}
       tabBarOptions={{
         activeTintColor: 'white',
         inactiveTintColor: '#92fdc3',
-        labelStyle:{fontSize:13, alignSelf: 'center', top: -5},
+        labelStyle:{fontSize:11, alignSelf: 'center', top: -8},
         // keyboardHidesTabBar: true,
         style:{
           position: 'absolute',
-          marginBottom: 15,
+          marginBottom: 12,
           backgroundColor: '#0fa87d',
-          height: 60,
+          height: 55,
           marginHorizontal: 50,
           borderRadius: 50,
         },

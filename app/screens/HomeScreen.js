@@ -71,7 +71,14 @@ function HomeScreen({navigation}) {
       <TopBar/>
       <ScrollView>
         <Text style={styles.heading}>Home</Text>
-        <StoryContainer/>
+
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          {data.map((item, key) => {
+            return (
+              <StoryContainer source={item.photo} key={item.id}/>
+            );
+          })}
+        </ScrollView>
 
         {
           data.map((item, key) => {
