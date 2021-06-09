@@ -2,9 +2,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import HomeScreen from '../app/screens/HomeScreen';
-import ProfileScreen from '../app/screens/ProfileScreen';
-import SettingsScreen from '../app/screens/SettingsScreen';
+import HomeScreen from '../screens/HomeScreen';
+import ContactsScreen from '../screens/ContactsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 const BottomBarTab = ()=> {
@@ -20,7 +20,7 @@ const BottomBarTab = ()=> {
           else if (route.name === 'Settings') {
             iconName = focused ? 'settings' : 'settings-outline';
           }
-          else if (route.name === 'Profile') {
+          else if (route.name === 'Contacts') {
             iconName = focused ? 'person' : 'person-outline';
           }
 
@@ -43,7 +43,7 @@ const BottomBarTab = ()=> {
       }}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Contacts" component={ContactsScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );

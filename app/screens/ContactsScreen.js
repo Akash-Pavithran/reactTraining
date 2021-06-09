@@ -7,36 +7,26 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  FlatList,
 } from 'react-native';
 import TopBar from '../components/TopBar';
-import StoryContainer from '../components/StoryContainer';
 import {data} from '../apis/data';
 
-function HomeScreen({navigation}) {
+function ContactsScreen({navigation}) {
   return (
-    <View style={styles.container}>
+    <View style={styles.home}>
       <TopBar/>
       <ScrollView>
-        <Text style={styles.heading}>Home</Text>
-
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {data.map((item, key) => {
+        <Text style={styles.heading}>Contacts</Text>
+        {
+          data.map((item, key) => {
             return (
-              <StoryContainer source={item.photo} key={item.id}/>
+              <TouchableOpacity style={styles.item} key={item.id}>
+                <Image style={styles.photo} source={item.photo} />
+                <Text style={styles.title}>{item.title}</Text>
+              </TouchableOpacity>
             );
-          })}
-        </ScrollView>
-        <FlatList
-          data={data}
-          // scrollEnabled={false}
-          renderItem={({item})=>(
-            <TouchableOpacity style={styles.item} key={item.id}>
-              <Image style={styles.photo} source={item.photo} />
-              <Text style={styles.title}>{item.title}</Text>
-            </TouchableOpacity>
-        )}
-        />
+          })
+        }
         <View style={styles.blankSpace}/>
       </ScrollView>
     </View>
@@ -77,5 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-export default HomeScreen;
+export default ContactsScreen;

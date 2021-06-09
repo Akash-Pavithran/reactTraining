@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import BottomBarTab from './navigator/BottomBarTab';
+import BottomBarTab from './app/navigator/BottomBarTab';
 
 const App = ()=> {
 

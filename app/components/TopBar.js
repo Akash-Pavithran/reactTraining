@@ -19,7 +19,7 @@ const TopBar = () => {
       <View style={styles.searchBar}>
         {
           showSearch ? (
-            <TextInput style={styles.searchBox} />
+            <TextInput style={styles.searchBox} placeholder="search" placeholderTextColor="white" />
           ) : null
         }
         <TouchableOpacity onPress={()=>setShowSearch(!showSearch)}>
