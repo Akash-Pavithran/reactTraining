@@ -7,7 +7,6 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  FlatList,
 } from 'react-native';
 import TopBar from '../components/TopBar';
 import StoryContainer from '../components/StoryContainer';
@@ -27,16 +26,18 @@ function HomeScreen({navigation}) {
             );
           })}
         </ScrollView>
-        <FlatList
-          data={data}
-          // scrollEnabled={false}
-          renderItem={({item})=>(
-            <TouchableOpacity style={styles.item} key={item.id}>
-              <Image style={styles.photo} source={item.photo} />
-              <Text style={styles.title}>{item.title}</Text>
-            </TouchableOpacity>
-        )}
-        />
+        <View>
+          {
+            data.map((item, key)=>{
+              return (
+                <TouchableOpacity style={styles.item} key={item.id}>
+                  <Image style={styles.photo} source={item.photo} />
+                  <Text style={styles.title}>{item.title}</Text>
+                </TouchableOpacity>
+              );
+            })
+          }
+        </View>
         <View style={styles.blankSpace}/>
       </ScrollView>
     </View>
