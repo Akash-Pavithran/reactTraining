@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   ScrollView,
@@ -10,9 +10,25 @@ import {
 } from 'react-native';
 import TopBar from '../components/TopBar';
 import StoryContainer from '../components/StoryContainer';
-import {data} from '../apis/data';
+// import {data} from '../apis/data';
+import newsApi from '../apis/newsApi'
 
 function HomeScreen({navigation}) {
+  const [news, setNews] = useState([])
+  useEffect(()=>{
+    newsResponse()
+  },[])
+  const newsResponse = async()=> {
+    const response = await newsApi.get('top-headlines?sources=techcrunch&apiKey=d74998efe40342a69ba6a8d16d53b6fb')
+    .then(function (response){
+      setNews(response.data.articles)
+
+    })
+  }
+  
+  if (!news) {
+    return null
+  }
   return (
     <View style={styles.container}>
       <TopBar/>
@@ -20,19 +36,19 @@ function HomeScreen({navigation}) {
         <Text style={styles.heading}>Home</Text>
 
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {data.map((item, key) => {
+          {news.map((item, index) => {
             return (
-              <StoryContainer source={item.photo} key={item.id}/>
+              <StoryContainer source={{uri:item.urlToImage}} key={index}/>
             );
           })}
         </ScrollView>
         <View>
           {
-            data.map((item, key)=>{
+            news.map((item, index)=>{
               return (
-                <TouchableOpacity style={styles.item} key={item.id}>
-                  <Image style={styles.photo} source={item.photo} />
-                  <Text style={styles.title}>{item.title}</Text>
+                <TouchableOpacity style={styles.item} key={index}>
+                  <Image style={styles.photo} source={{uri:item.urlToImage}} />
+                  <Text style={styles.title}>{item.author}</Text>
                 </TouchableOpacity>
               );
             })

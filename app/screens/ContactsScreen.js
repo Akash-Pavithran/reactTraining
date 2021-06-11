@@ -21,8 +21,8 @@ function ContactsScreen({navigation}) {
           data.map((item, key) => {
             return (
               <TouchableOpacity style={styles.item} key={item.id}>
-                <Image style={styles.photo} source={item.photo} />
-                <Text style={styles.title}>{item.title}</Text>
+                <Image style={styles.photo} source={{uri:item.photo}} />
+                <Text style={styles.title}>{item.name}</Text>
               </TouchableOpacity>
             );
           })

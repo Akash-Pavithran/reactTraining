@@ -1,53 +1,38 @@
 /* eslint-disable prettier/prettier */
 export const data = [
   {
-    id: 1,
-    title: 'Jose Diginest',
-    photo: require('../images/1.jpg'),
+    "id": "60c258b12ec5cff6ee114bc5",
+    "photo": "http://placehold.it/32x32",
+    "name": "Casandra Phillips"
   },
   {
-    id: 2,
-    title: 'Akhil Diginest',
-    photo: require('../images/2.jpg'),
+    "id": "60c258b1df9271d61801a2ba",
+    "photo": "http://placehold.it/32x32",
+    "name": "Monica Yates"
   },
   {
-    id: 3,
-    title: 'Shabin Diginest',
-    photo: require('../images/3.jpg'),
+    "id": "60c258b17429429f2c9cb2ef",
+    "photo": "http://placehold.it/32x32",
+    "name": "Brittney Rodriguez"
   },
   {
-    id: 4,
-    title: 'Dipin Diginest',
-    photo: require('../images/4.jpg'),
+    "id": "60c258b17de65266d2306057",
+    "photo": "http://placehold.it/32x32",
+    "name": "Joann Parrish"
   },
   {
-    id: 5,
-    title: 'Shibu Diginest',
-    photo: require('../images/5.jpg'),
+    "id": "60c258b120cbd0368ada26f5",
+    "photo": "http://placehold.it/32x32",
+    "name": "Hodges Mccarty"
   },
   {
-    id: 6,
-    title: 'Shaji Diginest',
-    photo: require('../images/6.jpg'),
+    "id": "60c258b1526b7c8b0198963f",
+    "photo": "http://placehold.it/32x32",
+    "name": "Mendez Maynard"
   },
   {
-    id: 7,
-    title: 'Sudheesh Diginest',
-    photo: require('../images/7.jpg'),
-  },
-  {
-    id: 8,
-    title: 'Nidheesh Diginest',
-    photo: require('../images/8.jpg'),
-  },
-  {
-    id: 9,
-    title: 'Satheesh Diginest',
-    photo: require('../images/9.jpg'),
-  },
-  {
-    id: 10,
-    title: 'Ramesh Diginest',
-    photo: require('../images/10.jpg'),
-  },
-];
+    "id": "60c258b1f107e68da49b1e46",
+    "photo": "http://placehold.it/32x32",
+    "name": "Wong Bird"
+  }
+]
