@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-shadow */
+/* eslint-disable no-unused-vars */
 import React, {useEffect, useState} from 'react';
 import {
   View,
@@ -11,23 +13,30 @@ import {
 import TopBar from '../components/TopBar';
 import StoryContainer from '../components/StoryContainer';
 // import {data} from '../apis/data';
-import newsApi from '../apis/newsApi'
+import newsApi from '../apis/newsApi';
 
 function HomeScreen({navigation}) {
-  const [news, setNews] = useState([])
+
+  const [news, setNews] = useState([]);
+
+
   useEffect(()=>{
-    newsResponse()
-  },[])
+    newsResponse();
+  },[]);
+
   const newsResponse = async()=> {
     const response = await newsApi.get('top-headlines?sources=techcrunch&apiKey=d74998efe40342a69ba6a8d16d53b6fb')
     .then(function (response){
-      setNews(response.data.articles)
+      setNews(response.data.articles);
 
     })
-  }
-  
+    .catch((e) => {
+      console.warn(e);
+    });
+  };
+
   if (!news) {
-    return null
+    return null;
   }
   return (
     <View style={styles.container}>
@@ -48,7 +57,10 @@ function HomeScreen({navigation}) {
               return (
                 <TouchableOpacity style={styles.item} key={index}>
                   <Image style={styles.photo} source={{uri:item.urlToImage}} />
-                  <Text style={styles.title}>{item.author}</Text>
+                  <View style={{flexShrink: 1}}>
+                    <Text style={styles.title}>{item.author}</Text>
+                    <Text numberOfLines={3} style={{fontSize: 12}}>{item.description}</Text>
+                  </View>
                 </TouchableOpacity>
               );
             })
@@ -80,8 +92,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
   },
   title: {
+    fontWeight: 'bold',
     fontSize: 16,
-    paddingTop: 10,
+    // paddingTop: 10,
   },
   photo: {
     width:60,

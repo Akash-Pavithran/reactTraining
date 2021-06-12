@@ -8,6 +8,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import SideDrawer from '../navigator/SideDrawer';
 
 const TopBar = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -33,7 +34,7 @@ const TopBar = () => {
         <Image
         style={styles.hamburger}
         source={require('../icons/hamburger.png')}
-        />
+        onPress={()=><SideDrawer/> } />
       </TouchableOpacity>
     </View>
   );

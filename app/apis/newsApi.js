@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://newsapi.org/v2/'
-})
+  baseURL: 'https://newsapi.org/v2/',
+});
