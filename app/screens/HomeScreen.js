@@ -9,13 +9,23 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  RefreshControl,
 } from 'react-native';
 import TopBar from '../components/TopBar';
 import StoryContainer from '../components/StoryContainer';
 // import {data} from '../apis/data';
 import newsApi from '../apis/newsApi';
 
+const wait = (timeout) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+};
 function HomeScreen({navigation}) {
+  const [refreshing, setRefreshing] = React.useState(false);
+  
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(300).then(() => setRefreshing(false));
+  }, []);
 
   const [news, setNews] = useState([]);
 
@@ -41,7 +51,14 @@ function HomeScreen({navigation}) {
   return (
     <View style={styles.container}>
       <TopBar/>
-      <ScrollView>
+      <ScrollView
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+        />
+      }
+      >
         <Text style={styles.heading}>Home</Text>
 
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
