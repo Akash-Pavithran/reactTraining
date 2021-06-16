@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   ScrollView,
@@ -9,20 +9,34 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import TopBar from '../components/TopBar';
-import {data} from '../apis/data';
+// import {data} from '../apis/data';
+import newsApi from '../apis/newsApi';
+
 
 function ContactsScreen({navigation}) {
+
+  const [news, setNews] = useState([]);
+
+
+  useEffect(()=>{newsResponse();},[]);
+
+  const newsResponse = async()=> {
+    const response = await newsApi.get('top-headlines?sources=techcrunch&apiKey=d74998efe40342a69ba6a8d16d53b6fb')
+    .then(function (response){
+      setNews(response.data.articles);
+    });
+  };
   return (
     <View style={styles.home}>
       <TopBar/>
       <ScrollView>
         <Text style={styles.heading}>Contacts</Text>
         {
-          data.map((item, key) => {
+          news.map((item, index) => {
             return (
-              <TouchableOpacity style={styles.item} key={item.id}>
-                <Image style={styles.photo} source={{uri:item.photo}} />
-                <Text style={styles.title}>{item.name}</Text>
+              <TouchableOpacity style={styles.item} key={index}>
+                <Image style={styles.photo} source={{uri:item.urlToImage}} />
+                <Text style={styles.title}>{item.author}</Text>
               </TouchableOpacity>
             );
           })
